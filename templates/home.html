@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='personal.css') }}">
+</head>
+
+<center>
+<div class="heading">
+  <h1>John Cunnington</h1>
+</div>
+</center>
+
+<div class="menu">
+  <a href="{{ url_for('projects') }}"><h2>Projects</h2></a>
+  <a href="{{ url_for('experience')}}"><h2>Work Experience</h2></a>
+  <a href="{{ url_for('contact') }}"><h2>Contact Me!</h2></a>
+</div>
+
+<body>
+<center>
+  <div class="about_me">
+    <h1>About Me!</h1>
+  </div>
+</center>
+
+<p>My name is John Cunnington. I have been learning to code since I was about 8 years old. 
+I began learning at my local RadioShack and have continued to persue knowledge in computers. 
+I am persuing a college degree in computer science at the University at Buffalo with an expected graduation of May 2029</p>
+</body>
+</html>

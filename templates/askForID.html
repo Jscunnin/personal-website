@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='personal.css') }}">
+</head>
+
+<body>
+<div class="top_menu">
+  <hr>
+  <a href="{{ url_for('main') }}"><p>| home |</p></a>
+  <hr>
+</div>
+
+<center>
+<form action="/submit" method="POST">
+<label for="company">Please Enter What Company You Represent</label>
+<input type="text" id="userID" name="user_input">
+<button type="submit">Submit</button>
+</form>

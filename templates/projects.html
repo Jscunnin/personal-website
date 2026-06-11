@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
+</head>
+
+<body>
+<div class="top_menu">
+  <hr>
+  <a href="{{ url_for('main') }}"><p>| home |</p></a>
+  <hr>
+</div>
+
+<center><h1>My Projects</h2></center>
+
+<div class="espGH">
+	<center><h2>The EspGH</h2></center>
+	<p>This project consisted of setting up a local network of 2 ESP8266 micro controllers and a Raspberry Pi in order to 
+	read and control the temperature of a room, using relays, in order to care for plants. I did this using a MQTT system with the 
+	Raspberry Pi as the broker. Then in order to see the data I made a custom website using Flask with python that would display information such 
+	as the current temperature, the current humidity, and it would provide graphs of the temperature and humidity over time.
+	</p>
+</div>
+<hr>
+<div class="apiUse">
+	<center><h2>API implementation</h2></center>
+	<p>I have used API's in some of my smaller projects. Some of these consisted of using an IP information API inside 
+	of my website for the espGH in order to monitor the traffic through the website. I have also attempted to use 
+	weather API's to control whether the heating or cooling system was used for the espGH but unfortunately I did 
+ 	not have the hardware available to implement this.</p>
+</div>
+<hr>
+<div class="seds">
+	<center><h2>Rockets!!(UB Seds)</h2></center>
+	<p>I helped work on drivers in c to communicate with a BMI 088 over SPI on a rocket in order to help control the thrust 
+	of the rocket. I learned a lot of valuable skills here including working with git, working with imbedded systems, 
+	working in a larger team, and coding in c.</p>
+</div>
+<hr>
+<div class="Website">
+	<center><h2>This site!</h2></center>
+	<p>This site is one of my projects as well. Created from scratch and running on my own device, it has been a huge learning 
+	oppurtunity. It started as simple webpages using only HTML and has taught me the basics of HTML, CSS, Javascript, 
+	as well as some backend principles using the Flask framework for python. 
+	</p>
+</div>
+</body>
+</html>

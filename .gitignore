@@ -1,0 +1,5 @@
+.venv/
+startTunnel.sh
+.data/log
+.secrets/
+*.log
