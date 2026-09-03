@@ -18,7 +18,7 @@ A fully-featured personal portfolio website showcasing projects, skills, and con
 
 ## About
 
-This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes clean, intuitive user experience paired with robust backend functionality to ensure reliability, security, and performance.
+This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes[...]
 
 ## Features
 
@@ -35,14 +35,14 @@ This is a personal portfolio website designed to provide employers, collaborator
 | **Frontend** | HTML, CSS |
 | **Backend** | Flask (Python) |
 | **Server** | Linux (self-managed) |
-| **Deployment** | Manual Linux server |
+| **Deployment** | systemd service |
 
 ## Project Structure
 
 ```
 personal-website/
 ├── README.md
-├── app.py                 # Flask application entry point
+├── main.py                # Flask application entry point
 ├── requirements.txt       # Python dependencies
 ├── static/               # Static assets (CSS, JS, images)
 │   ├── css/
@@ -87,7 +87,7 @@ personal-website/
 Start the development server:
 
 ```bash
-python app.py
+python main.py
 ```
 
 The site will be available at `http://localhost:5000`
@@ -111,7 +111,7 @@ flask run
 2. **Clone the repository**
    ```bash
    git clone https://github.com/Jscunnin/personal-website.git
-   cd personal-website
+   cd /path/to/personal-website
    ```
 
 3. **Install Python dependencies**
@@ -121,29 +121,20 @@ flask run
    pip install -r requirements.txt
    ```
 
-4. **Configure your web server** (nginx recommended)
-   - Use Gunicorn as the WSGI application server
-   - Set up a reverse proxy with nginx
-   - Configure SSL/TLS certificates (Let's Encrypt)
-
-5. **Start the application**
-   ```bash
-   gunicorn -w 4 -b 0.0.0.0:8000 app:app
-   ```
-
-6. **Set up a systemd service** (for automatic restarts)
+4. **Set up a systemd service** (for automatic startup and restarts)
+   
    Create `/etc/systemd/system/personal-website.service`:
    ```ini
    [Unit]
-   Description=Personal Website
+   Description=Professional Personal Website
    After=network.target
 
    [Service]
-   User=www-data
-   WorkingDirectory=/path/to/personal-website
-   Environment="PATH=/path/to/personal-website/venv/bin"
-   ExecStart=/path/to/personal-website/venv/bin/gunicorn -w 4 -b 127.0.0.1:8000 app:app
+   Type=simple
+   ExecStart=/bin/python3 /home/websites/personalWebsite/main.py
    Restart=always
+   User=websites
+   WorkingDirectory=/home/websites/personalWebsite
 
    [Install]
    WantedBy=multi-user.target
@@ -154,6 +145,12 @@ flask run
    sudo systemctl enable personal-website
    sudo systemctl start personal-website
    ```
+
+5. **Manage the service**
+   
+   - Check status: `sudo systemctl status personal-website`
+   - Restart: `sudo systemctl restart personal-website`
+   - View logs: `sudo journalctl -u personal-website -f`
 
 ## Contributing
 
