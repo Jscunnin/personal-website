@@ -1,6 +1,7 @@
 # Personal Website
 
 jscunnin.com
+
 A fully-featured personal portfolio website showcasing projects, skills, and contact information. Built with Flask and deployed on a self-managed Linux server.
 
 ## 📋 Table of Contents
@@ -14,11 +15,10 @@ A fully-featured personal portfolio website showcasing projects, skills, and con
 - [Running Locally](#running-locally)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## About
 
-This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes a simple, fast frontend and a small Flask backend.
+This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes clean design, responsiveness, and user experience.
 
 ## Features
 
@@ -35,7 +35,7 @@ This is a personal portfolio website designed to provide employers, collaborator
 | **Frontend** | HTML, CSS |
 | **Backend** | Flask (Python) |
 | **Server** | Linux (self-managed) |
-| **Deployment** | systemd service
+| **Deployment** | systemd service |
 
 ## Project Structure
 
@@ -43,7 +43,7 @@ This is a personal portfolio website designed to provide employers, collaborator
 personal-website/
 ├── README.md
 ├── main.py                # Flask application entry point (runs on port 5001 by default)
-├── requirements.txt       # Python dependencies (added)
+├── requirements.txt       # Python dependencies
 ├── static/               # Static assets (CSS, JS, images)
 │   ├── css/
 │   ├── js/
@@ -65,7 +65,7 @@ personal-website/
 
 ### Installation
 
-Note: this project now includes a minimal `requirements.txt`. Prefer installing from that file for reproducible installs.
+Note: this project includes a `requirements.txt`. Prefer installing from that file for reproducible installs.
 
 1. **Clone the repository**
    ```bash
@@ -73,28 +73,17 @@ Note: this project now includes a minimal `requirements.txt`. Prefer installing 
    cd personal-website
    ```
 
-2. **Create and activate a virtual environment** (only once)
+2. **Create and activate a virtual environment**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   source venv/bin/activate
    ```
 
 3. **Install Python dependencies**
-
-   If you have `requirements.txt` (recommended):
    ```bash
    python -m pip install --upgrade pip
    pip install -r requirements.txt
    ```
-
-   If you don't have `requirements.txt` (not recommended):
-   ```bash
-   python -m pip install --upgrade pip
-   pip install Flask
-   ```
-
-Notes
-- Do not recreate the virtual environment multiple times; create it once and activate it for subsequent steps.
 
 ## Running Locally
 
@@ -102,35 +91,17 @@ Start the development server directly (the application uses port 5001 by default
 
 ```bash
 python main.py
-# Open http://localhost:5001
 ```
 
-To run with the Flask CLI (set the FLASK_APP environment variable):
-
-```bash
-export FLASK_APP=main
-export FLASK_ENV=development
-flask run --port 5001
-```
-
-Windows PowerShell equivalents:
-```powershell
-$env:FLASK_APP = 'main'
-$env:FLASK_ENV = 'development'
-flask run --port 5001
-```
-
-Notes
-- `flask run` requires `FLASK_APP` to be set (or an installed Flask app). The `python main.py` approach works without the Flask environment variables.
-- main.py currently calls app.run(..., port=5001). If you prefer the standard 5000 port, change the port in `main.py`.
+Then open `http://localhost:5001` in your browser.
 
 ## Deployment
 
-### Linux Server Setup (example)
+### Linux Server Setup
 
 1. **SSH into your server**
    ```bash
-   ssh user@your_server_ip
+   ssh user@server_ip
    ```
 
 2. **Clone the repository on the server**
@@ -149,17 +120,17 @@ Notes
 
 4. **Prepare runtime directories and permissions**
 
-   The application writes connection logs to `.data/connections.log`. Create the `.data` directory and ensure the service user can write to it:
+   The application writes connection logs to `.data/connections.log`. Create the `.data` directory with appropriate permissions:
 
    ```bash
    mkdir -p .data
-   sudo chown -R websites:websites .data   # adjust user:group as appropriate
    chmod 700 .data
    ```
 
-5. **Set up a systemd service** (example)
+5. **Set up a systemd service**
 
-   Create `/etc/systemd/system/personal-website.service` with contents similar to:
+   Create a systemd unit file (e.g., `/etc/systemd/system/personal-website.service`):
+
    ```ini
    [Unit]
    Description=Personal Website (Flask)
@@ -167,16 +138,16 @@ Notes
 
    [Service]
    Type=simple
-   User=websites
-   WorkingDirectory=/home/websites/personal-website
-   ExecStart=/home/websites/personal-website/venv/bin/python /home/websites/personal-website/main.py
+   User=<service_user>
+   WorkingDirectory=<project_path>
+   ExecStart=<project_path>/venv/bin/python <project_path>/main.py
    Restart=always
 
    [Install]
    WantedBy=multi-user.target
    ```
 
-   Important: update `User`, `WorkingDirectory`, and `ExecStart` to match your server paths and service user. The example above assumes the project is at `/home/websites/personal-website` and that you are using the virtualenv's python as ExecStart.
+   Replace `<service_user>` with your service user and `<project_path>` with the full path to your project directory.
 
    Enable and start the service:
    ```bash
@@ -190,14 +161,10 @@ Notes
    - Restart: `sudo systemctl restart personal-website`
    - View logs: `sudo journalctl -u personal-website -f`
 
-Notes
-- The README previously used `/home/websites/personalWebsite` (no hyphen). Make sure the paths in the unit file match where you actually deploy the repository.
-- The repository does not include the systemd unit file by default; the example above is intended as a starting point — commit it to the deployment tooling if you want it tracked.
+## Logging and Privacy
 
-## Logging and privacy
-
-- `main.py` writes simple connection logs to `.data/connections.log` and uses a cookie-based `userID` flow for basic logging. Ensure `.data` is created and secured on the server; do not commit logs to the repository.
-- The contact page includes a phone number and email in `templates/contact.html`. If you prefer to collect messages instead of exposing contact details, implement a form or an email-proxy endpoint and remove the static contact details.
+- `main.py` writes simple connection logs to `.data/connections.log` and uses a cookie-based `userID` flow for basic logging. Ensure `.data` is created and secured on the server; do not commit logs to version control.
+- The contact page includes contact details in `templates/contact.html`. If you prefer to collect messages instead of exposing contact details, implement a contact form or email-proxy endpoint.
 
 ## Contributing
 
@@ -208,5 +175,3 @@ This is a personal project, but suggestions and improvements are welcome! Please
 3. Commit your changes (`git commit -am 'Add improvement'`)
 4. Push to the branch (`git push origin feature/improvement`)
 5. Open a Pull Request
-
----
