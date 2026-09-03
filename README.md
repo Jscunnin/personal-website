@@ -94,7 +94,6 @@ Note: this project now includes a minimal `requirements.txt`. Prefer installing 
    ```
 
 Notes
-- The repository now contains a minimal `requirements.txt` (Flask dependency). Pin versions there if you need strict reproducibility.
 - Do not recreate the virtual environment multiple times; create it once and activate it for subsequent steps.
 
 ## Running Locally
