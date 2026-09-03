@@ -35,7 +35,7 @@ This is a personal portfolio website designed to provide employers, collaborator
 | **Frontend** | HTML, CSS |
 | **Backend** | Flask (Python) |
 | **Server** | Linux (self-managed) |
-| **Deployment** | systemd service (example)
+| **Deployment** | systemd service
 
 ## Project Structure
 
