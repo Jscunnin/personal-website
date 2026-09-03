@@ -1,48 +1,251 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>John Cunnington | Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
 </head>
 
 <body>
-<div class="top_menu">
-  <hr>
-  <a href="{{ url_for('main') }}"><p>| home |</p></a>
-  <hr>
-</div>
 
-<center><h1>My Projects</h2></center>
+<header class="site-header">
+    <div class="site-header__inner">
 
-<div class="espGH">
-	<center><h2>The EspGH</h2></center>
-	<p>This project consisted of setting up a local network of 2 ESP8266 micro controllers and a Raspberry Pi in order to 
-	read and control the temperature of a room, using relays, in order to care for plants. I did this using a MQTT system with the 
-	Raspberry Pi as the broker. Then in order to see the data I made a custom website using Flask with python that would display information such 
-	as the current temperature, the current humidity, and it would provide graphs of the temperature and humidity over time.
-	</p>
-</div>
-<hr>
-<div class="apiUse">
-	<center><h2>API implementation</h2></center>
-	<p>I have used API's in some of my smaller projects. Some of these consisted of using an IP information API inside 
-	of my website for the espGH in order to monitor the traffic through the website. I have also attempted to use 
-	weather API's to control whether the heating or cooling system was used for the espGH but unfortunately I did 
- 	not have the hardware available to implement this.</p>
-</div>
-<hr>
-<div class="seds">
-	<center><h2>Rockets!!(UB Seds)</h2></center>
-	<p>I helped work on drivers in c to communicate with a BMI 088 over SPI on a rocket in order to help control the thrust 
-	of the rocket. I learned a lot of valuable skills here including working with git, working with imbedded systems, 
-	working in a larger team, and coding in c.</p>
-</div>
-<hr>
-<div class="Website">
-	<center><h2>This site!</h2></center>
-	<p>This site is one of my projects as well. Created from scratch and running on my own device, it has been a huge learning 
-	oppurtunity. It started as simple webpages using only HTML and has taught me the basics of HTML, CSS, Javascript, 
-	as well as some backend principles using the Flask framework for python. 
-	</p>
-</div>
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ url_for('main') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a class="brand" href="{{ url_for('main') }}">
+            John Cunnington
+        </a>
+
+    </div>
+</header>
+
+
+<main class="page">
+
+    <section class="hero">
+        <div class="hero__eyebrow">Computer Science Student · Embedded Systems · IT</div>
+
+        <h1>Projects</h1>
+
+        <p class="hero__lede">
+            A collection of software, embedded systems, networking, and automation
+            projects developed through coursework, student organizations, and
+            independent work.
+        </p>
+    </section>
+
+
+    <section class="section">
+
+        <h2 class="section__title">Featured Projects</h2>
+
+
+        <article class="project-card">
+
+            <h3 class="project-card__title">
+                STM32 / BMI088 Embedded Driver
+            </h3>
+
+            <div class="project-card__meta">
+                C · STM32 · Embedded Systems · SPI
+            </div>
+
+            <div class="project-card__body">
+
+                <p>
+                    Designed and implemented a C driver for communication between
+                    an STM32 microcontroller and a BMI088 accelerometer. The project
+                    involved low-level sensor communication, data handling, and
+                    embedded systems development as part of UB SEDS.
+                </p>
+
+                <ul class="tag-list">
+                    <li class="tag">C</li>
+                    <li class="tag">STM32</li>
+                    <li class="tag">SPI</li>
+                    <li class="tag">Embedded Systems</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <h3 class="project-card__title">
+                Greenhouse / VPD Automation System
+            </h3>
+
+            <div class="project-card__meta">
+                Python · Raspberry Pi · ESP8266 · MQTT
+            </div>
+
+            <div class="project-card__body">
+
+                <p>
+                    Developed a distributed environmental monitoring and automation
+                    system using Raspberry Pi and ESP8266 microcontrollers.
+                    Temperature and humidity data are collected from sensors and
+                    control environmental systems.
+                </p>
+
+                <p>
+                    MQTT is used to communicate sensor data between embedded
+                    devices and the Raspberry Pi, allowing the system to monitor
+                    conditions and automate environmental controls.
+                </p>
+
+                <ul class="tag-list">
+                    <li class="tag">Python</li>
+                    <li class="tag">Raspberry Pi</li>
+                    <li class="tag">ESP8266</li>
+                    <li class="tag">MQTT</li>
+                    <li class="tag">Sensors</li>
+                    <li class="tag">Automation</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <h3 class="project-card__title">
+                Personal Website / Flask Server
+            </h3>
+
+            <div class="project-card__meta">
+                Python · Flask · Linux · Git
+            </div>
+
+            <div class="project-card__body">
+
+                <p>
+                    Designed and developed this personal portfolio website from
+                    scratch using HTML, CSS, JavaScript, and Python Flask.
+                    The application is deployed on a Linux server and maintained
+                    using Git and GitHub.
+                </p>
+
+                <p>
+                    This project has provided hands-on experience with web
+                    development, server administration, version control, and
+                    backend application development.
+                </p>
+
+                <ul class="tag-list">
+                    <li class="tag">Python</li>
+                    <li class="tag">Flask</li>
+                    <li class="tag">HTML</li>
+                    <li class="tag">CSS</li>
+                    <li class="tag">JavaScript</li>
+                    <li class="tag">Linux</li>
+                    <li class="tag">Git</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <h3 class="project-card__title">
+                IoT & Home Automation Projects
+            </h3>
+
+            <div class="project-card__meta">
+                Python · Raspberry Pi · ESP8266 · GPIO
+            </div>
+
+            <div class="project-card__body">
+
+                <p>
+                    Designed and implemented multiple IoT automation systems using
+                    Raspberry Pi and ESP8266 microcontrollers. Projects have
+                    included integrating sensors, GPIO-controlled hardware,
+                    automated systems, and network communication.
+                </p>
+
+                <ul class="tag-list">
+                    <li class="tag">Python</li>
+                    <li class="tag">Raspberry Pi</li>
+                    <li class="tag">ESP8266</li>
+                    <li class="tag">GPIO</li>
+                    <li class="tag">IoT</li>
+                    <li class="tag">Automation</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2 class="section__title">Other Experience</h2>
+
+        <article class="project-card">
+
+            <h3 class="project-card__title">
+                SpaceBulls Rover Communications
+            </h3>
+
+            <div class="project-card__meta">
+                Networking · 5G · Ubiquiti · Ground Station
+            </div>
+
+            <div class="project-card__body">
+
+                <p>
+                    Worked on the communications infrastructure for a rover
+                    project, developing a ground station capable of communicating
+                    with a rover over long distances. Helped lead the design of
+                    the ground station setup and investigated future options for
+                    remote rover control.
+                </p>
+
+                <ul class="tag-list">
+                    <li class="tag">Networking</li>
+                    <li class="tag">5G</li>
+                    <li class="tag">Ubiquiti</li>
+                    <li class="tag">Robotics</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+    <p>
+        © 2026 John Cunnington
+    </p>
+</footer>
+
 </body>
 </html>

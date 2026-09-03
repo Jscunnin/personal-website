@@ -1,5 +1,74 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>John Cunnington | Coming Soon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
 </head>
-<h1>This page has not been created yet</h1>
+
+<body>
+
+<header class="site-header">
+    <div class="site-header__inner">
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ url_for('main') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a class="brand" href="{{ url_for('main') }}">
+            John Cunnington
+        </a>
+
+    </div>
+</header>
+
+
+<main class="page">
+
+    <section class="hero">
+
+        <div class="hero__eyebrow">
+            Portfolio
+        </div>
+
+        <h1>Coming Soon</h1>
+
+        <p class="hero__lede">
+            This page is currently under construction. I'm working on
+            adding more information and projects to my portfolio.
+        </p>
+
+        <p>
+            Check back soon for updates.
+        </p>
+
+        <a class="btn" href="{{ url_for('main') }}">
+            Return Home
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+    <p>© 2026 John Cunnington</p>
+</footer>
+
+</body>
+</html>
+
