@@ -1,40 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{url_for('static', filename='personal.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>John Cunnington | Computer Science</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='personal.css') }}">
 </head>
 
-<center>
-<header class="site-header">
-	<div class="site-header__inner">
-		<div class="brand">
-  			<h1>John Cunnington</h1>
-		</div>
+<body>
 
-		<ul class="nav-links">
- 			<li><a href="{{ url_for('projects') }}"><h2>Projects</h2></a>
-  			<li><a href="{{ url_for('experience')}}"><h2>Work Experience</h2></a>
-  			<li><a href="{{ url_for('contact') }}"><h2>Contact Me!</h2></a>
-		</ul>
-	</div>
+<header class="site-header">
+    <div class="site-header__inner">
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('experience') }}">Work Experience</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('contact') }}">Contact Me</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a class="brand" href="{{ url_for('main') }}">
+            John Cunnington
+        </a>
+
+    </div>
 </header>
+
+
+<main class="page">
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <p class="eyebrow">Computer Science Student · Developer · IT Technician</p>
+
+        <h1>
+            Building systems,<br>
+            solving problems,<br>
+            learning constantly.
+        </h1>
+
+        <p class="hero__text">
+            I'm John Cunnington, a Computer Science student at the
+            University at Buffalo with a passion for software,
+            embedded systems, networking, and automation.
+        </p>
+
+        <div class="hero__actions">
+            <a class="btn" href="{{ url_for('projects') }}">
+                View My Projects
+            </a>
+
+            <a class="btn btn--secondary" href="{{ url_for('contact') }}">
+                Get In Touch
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="section">
+
+        <div class="section__title">
+            <p class="eyebrow">About Me</p>
+            <h2>A little about me.</h2>
+        </div>
+
+        <p>
+            I've been interested in computers and programming since I was
+            a kid. What started as an interest in technology developed into
+            a deeper interest in understanding how software, hardware, and
+            networks work together.
+        </p>
+
+        <p>
+            I'm currently pursuing a B.S. in Computer Science at the
+            University at Buffalo, with an expected graduation in May 2029.
+            Alongside my coursework, I work as an IT Technician with the
+            University at Buffalo Libraries, where I troubleshoot hardware,
+            software, connectivity, and other technical problems across
+            multiple campus locations.
+        </p>
+
+    </section>
+
+
+    <!-- Technical Focus -->
+    <section class="section">
+
+        <div class="section__title">
+            <p class="eyebrow">What I Work With</p>
+            <h2>Technical interests.</h2>
+        </div>
+
+        <ul class="tag-list">
+            <li class="tag">Python</li>
+            <li class="tag">C / C++</li>
+            <li class="tag">Java</li>
+            <li class="tag">JavaScript</li>
+            <li class="tag">Flask</li>
+            <li class="tag">Linux</li>
+            <li class="tag">Raspberry Pi</li>
+            <li class="tag">ESP8266</li>
+            <li class="tag">STM32</li>
+            <li class="tag">MQTT</li>
+            <li class="tag">Networking</li>
+            <li class="tag">Automation</li>
+            <li class="tag">Embedded Systems</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Featured Projects -->
+    <section class="section">
+
+        <div class="section__title">
+            <p class="eyebrow">Selected Work</p>
+            <h2>What I've been building.</h2>
+        </div>
+
+        <div class="project-card">
+
+            <h3>STM32 / BMI088 Embedded Driver</h3>
+
+            <p>
+                A C driver developed for an STM32 microcontroller to
+                communicate with a BMI088 inertial sensor over SPI.
+                Developed as part of UB SEDS with an emphasis on
+                embedded communication and sensor data handling.
+            </p>
+
+            <ul class="tag-list">
+                <li class="tag">C</li>
+                <li class="tag">STM32</li>
+                <li class="tag">SPI</li>
+                <li class="tag">Embedded Systems</li>
+            </ul>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>Greenhouse / VPD Automation</h3>
+
+            <p>
+                A distributed environmental monitoring and automation
+                system using Raspberry Pi and ESP8266 devices.
+                Sensors collect environmental data while MQTT provides
+                communication between devices and the central system.
+            </p>
+
+            <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Raspberry Pi</li>
+                <li class="tag">ESP8266</li>
+                <li class="tag">MQTT</li>
+                <li class="tag">Automation</li>
+            </ul>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>Personal Website & Flask Server</h3>
+
+            <p>
+                The website you're currently viewing. Built with HTML,
+                CSS, JavaScript, and a Flask backend, and hosted on a
+                Linux server that I maintain myself.
+            </p>
+
+            <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Flask</li>
+                <li class="tag">Linux</li>
+                <li class="tag">Git</li>
+            </ul>
+
+        </div>
+
+        <div class="hero__actions">
+            <a class="btn" href="{{ url_for('projects') }}">
+                See All Projects →
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Current Position -->
+    <section class="section">
+
+        <div class="section__title">
+            <p class="eyebrow">Currently</p>
+            <h2>What I'm doing.</h2>
+        </div>
+
+        <p>
+            <strong>University at Buffalo — IT Technician</strong>
+        </p>
+
+        <p>
+            I provide technical support across five library locations,
+            troubleshooting computers, printers, software, hardware,
+            and network connectivity. I also build scripts and tools
+            to automate repetitive tasks and improve technical workflows.
+        </p>
+
+        <p>
+            Outside of work and coursework, I continue building projects
+            involving embedded systems, Linux servers, networking, and
+            automation.
+        </p>
+
+        <div class="hero__actions">
+            <a class="btn btn--secondary" href="{{ url_for('experience') }}">
+                View My Experience
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Contact CTA -->
+    <section class="section">
+
+        <div class="section__title">
+            <p class="eyebrow">Let's Connect</p>
+            <h2>Have a project or opportunity?</h2>
+        </div>
+
+        <p>
+            I'm always interested in working on interesting technical
+            projects, learning new technologies, and connecting with
+            other people in the field.
+        </p>
+
+        <div class="hero__actions">
+            <a class="btn" href="{{ url_for('contact') }}">
+                Contact Me
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
 
 <footer class="site-footer">
     <p>© 2026 John Cunnington</p>
 </footer>
 
-<body>
-<div class="section">
-	<div class="section__title">
-		<h1>About Me!</h1>
-	</div>
-
-	<p>My name is John Cunnington. I have been learning to code since I was about 8 years old. 
-	I began learning at my local RadioShack and have continued to persue knowledge in computers. 
-	I am persuing a college degree in computer science at the University at Buffalo with an expected graduation of May 2029</p>
-</div>
 </body>
-<center>
 </html>
