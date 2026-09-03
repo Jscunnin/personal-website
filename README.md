@@ -1,6 +1,6 @@
 # Personal Website
 
-jscunnin.com
+**Live Site:** [jscunnin.com](https://jscunnin.com)
 
 A fully-featured personal portfolio website showcasing projects, skills, and contact information. Built with Flask and deployed on a self-managed Linux server.
 
