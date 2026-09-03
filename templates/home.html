@@ -7,26 +7,30 @@
 </head>
 
 <center>
-<div class="heading">
-  <h1>John Cunnington</h1>
-</div>
-</center>
+<header class="site-header">
+	<div class="site-header__inner">
+		<div class="brand">
+  			<h1>John Cunnington</h1>
+		</div>
 
-<div class="menu">
-  <a href="{{ url_for('projects') }}"><h2>Projects</h2></a>
-  <a href="{{ url_for('experience')}}"><h2>Work Experience</h2></a>
-  <a href="{{ url_for('contact') }}"><h2>Contact Me!</h2></a>
-</div>
+		<ul class="nav-links">
+ 			<li><a href="{{ url_for('projects') }}"><h2>Projects</h2></a>
+  			<li><a href="{{ url_for('experience')}}"><h2>Work Experience</h2></a>
+  			<li><a href="{{ url_for('contact') }}"><h2>Contact Me!</h2></a>
+		</ul>
+	</div>
+</header>
 
 <body>
-<center>
-  <div class="about_me">
-    <h1>About Me!</h1>
-  </div>
-</center>
+<div class="section">
+	<div class="section__title">
+		<h1>About Me!</h1>
+	</div>
 
-<p>My name is John Cunnington. I have been learning to code since I was about 8 years old. 
-I began learning at my local RadioShack and have continued to persue knowledge in computers. 
-I am persuing a college degree in computer science at the University at Buffalo with an expected graduation of May 2029</p>
+	<p>My name is John Cunnington. I have been learning to code since I was about 8 years old. 
+	I began learning at my local RadioShack and have continued to persue knowledge in computers. 
+	I am persuing a college degree in computer science at the University at Buffalo with an expected graduation of May 2029</p>
+</div>
 </body>
+<center>
 </html>

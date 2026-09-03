@@ -1,0 +1,311 @@
+/* ==========================================================================
+   personal.css — professional portfolio theme
+   Font pairing: Space Grotesk (display) + Inter (body)
+   Add this to <head>, before the stylesheet link:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+   ========================================================================== */
+ 
+/* ---- Design tokens ------------------------------------------------------ */
+:root {
+  --color-bg:        #F7F6F2;  /* warm paper background */
+  --color-surface:   #FFFFFF;  /* card / panel background */
+  --color-ink:       #1C2430;  /* primary text (soft navy-black) */
+  --color-ink-soft:  #4B5768;  /* secondary text */
+  --color-line:      #DDE0E1;  /* hairline borders/dividers */
+  --color-primary:   #2B4C6F;  /* steel blue — structure, headings */
+  --color-accent:    #C97A2B;  /* brass — links, buttons, emphasis */
+  --color-accent-soft: #F1E4D3; /* accent tint, used behind tags */
+ 
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+ 
+  --container-w: 760px;
+  --radius: 4px;
+ 
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+}
+ 
+/* ---- Reset / base -------------------------------------------------------- */
+* { box-sizing: border-box; }
+ 
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+ 
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-sm);
+}
+ 
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; color: var(--color-primary); }
+ 
+p { margin: 0 0 var(--space-sm); color: var(--color-ink-soft); }
+ 
+hr {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  margin: var(--space-lg) 0;
+}
+ 
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+ 
+a:hover, a:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+ 
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+ 
+/* ---- Page shell ----------------------------------------------------------
+   .page: the main content column. Wrap your body content in this so it
+   doesn't stretch edge-to-edge on wide screens.
+   ---------------------------------------------------------------------- */
+.page {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-xl);
+}
+ 
+/* ---- Site header / nav ----------------------------------------------------
+   .site-header: full-width bar pinned to the top of the page.
+   .site-header__inner: centers/constrains the bar's contents to the
+     same width as .page.
+   .brand: your name/logo on the left of the nav.
+   .nav-links: the right-aligned row of nav links (home/projects/contact).
+   ---------------------------------------------------------------------- */
+.site-header {
+  border-bottom: 1px solid var(--color-line);
+  background-color: var(--color-surface);
+}
+ 
+.site-header__inner {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+ 
+.brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--color-ink);
+  border-bottom: none;
+}
+ 
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+.nav-links a {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+ 
+.nav-links a:hover { color: var(--color-accent); }
+ 
+/* ---- Hero / intro ----------------------------------------------------
+   .hero: the top block on the homepage — name, one-line role, short intro.
+   .hero__eyebrow: optional small line above the heading (e.g. location,
+     current role) — kept understated, not tracked-out caps.
+   ---------------------------------------------------------------------- */
+.hero {
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+ 
+.hero__eyebrow {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-xs);
+}
+ 
+.hero h1 { margin-bottom: var(--space-xs); }
+ 
+.hero__lede {
+  font-size: 1.15rem;
+  max-width: 60ch;
+}
+ 
+/* ---- Section ----------------------------------------------------------
+   .section: a labeled block of content (About, Experience, etc).
+   .section__title: heading for the block.
+   Use <hr> or the built-in top border between stacked sections.
+   ---------------------------------------------------------------------- */
+.section {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-line);
+}
+ 
+.section:first-child { border-top: none; }
+ 
+.section__title {
+  margin-bottom: var(--space-md);
+}
+ 
+/* ---- Project card -------------------------------------------------------
+   .project-card: one project entry (replaces the old one-off classes
+     like .espGH / .apiUse / .seds / .Website — reuse this single class
+     for every project instead of naming a class per project).
+   .project-card__title, .project-card__meta, .project-card__body:
+     internal structure for consistent spacing.
+   .tag-list / .tag: small chips for tech used (Flask, MQTT, C, etc).
+   ---------------------------------------------------------------------- */
+.project-card {
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-line);
+}
+ 
+.project-card:first-of-type { border-top: none; padding-top: 0; }
+ 
+.project-card__title {
+  margin-bottom: 0.25rem;
+}
+ 
+.project-card__meta {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-xs);
+}
+ 
+.project-card__body p:last-child { margin-bottom: 0; }
+ 
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0 0;
+}
+ 
+.tag {
+  background-color: var(--color-accent-soft);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+}
+ 
+/* ---- Buttons ------------------------------------------------------------
+   .btn: primary call-to-action (e.g. "Download resume", "Email me").
+   .btn--outline: secondary/lower-emphasis variant.
+   ---------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+}
+ 
+.btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+ 
+.btn--outline {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+ 
+.btn--outline:hover {
+  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+ 
+/* ---- Contact list ---------------------------------------------------
+   .contact-list: stacked list of contact methods on the contact page.
+   .contact-list__item: label + value pair (e.g. "Email" / address).
+   ---------------------------------------------------------------------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+ 
+.contact-list__item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: var(--space-sm);
+}
+ 
+.contact-list__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-primary);
+  min-width: 6rem;
+}
+ 
+/* ---- Footer -----------------------------------------------------------
+   .site-footer: thin closing bar with copyright/links.
+   ---------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--color-line);
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+}
+ 
+/* ---- Responsive --------------------------------------------------------- */
+@media (max-width: 600px) {
+  .site-header__inner { flex-direction: column; align-items: flex-start; gap: var(--space-xs); }
+  .nav-links { gap: var(--space-sm); flex-wrap: wrap; }
+  h1 { font-size: 1.85rem; }
+  .contact-list__item { flex-direction: column; gap: 0.25rem; }
+}
+ 
+/* ---- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  a { transition: none; }
+}
