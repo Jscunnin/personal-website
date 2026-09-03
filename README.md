@@ -1,5 +1,6 @@
 # Personal Website
 
+jscunnin.com
 A fully-featured personal portfolio website showcasing projects, skills, and contact information. Built with Flask and deployed on a self-managed Linux server.
 
 ## 📋 Table of Contents
@@ -188,5 +189,3 @@ This is a personal project, but suggestions and improvements are welcome! Please
 [Add your license here - e.g., MIT License]
 
 ---
-
-**Note:** The live domain is currently offline. You can view this repository for the source code and setup instructions.
