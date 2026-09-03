@@ -210,8 +210,4 @@ This is a personal project, but suggestions and improvements are welcome! Please
 4. Push to the branch (`git push origin feature/improvement`)
 5. Open a Pull Request
 
-## License
-
-[Add your license here - e.g., MIT License]
-
 ---
