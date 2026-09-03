@@ -11,7 +11,6 @@ A fully-featured personal portfolio website showcasing projects, skills, and con
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Running Locally](#running-locally)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
@@ -19,7 +18,7 @@ A fully-featured personal portfolio website showcasing projects, skills, and con
 
 ## About
 
-This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes clean design and user experience while maintaining robust backend functionality.
+This is a personal portfolio website designed to provide employers, collaborators, and visitors with a central hub to learn about my background, view my projects, and get in touch. The site emphasizes clean, intuitive user experience paired with robust backend functionality to ensure reliability, security, and performance.
 
 ## Features
 
@@ -49,13 +48,11 @@ personal-website/
 │   ├── css/
 │   ├── js/
 │   └── images/
-├── templates/            # Jinja2 HTML templates
-│   ├── base.html
-│   ├── index.html
-│   ├── projects.html
-│   └── contact.html
-└── config/              # Configuration files
-    └── config.py
+└── templates/            # Jinja2 HTML templates
+    ├── base.html
+    ├── index.html
+    ├── projects.html
+    └── contact.html
 ```
 
 ## Getting Started
@@ -84,22 +81,6 @@ personal-website/
    ```bash
    pip install -r requirements.txt
    ```
-
-## Configuration
-
-Create a `.env` file in the project root with the following variables (example):
-
-```env
-FLASK_ENV=development
-FLASK_DEBUG=False
-SECRET_KEY=your_secret_key_here
-```
-
-Update `config/config.py` with your site-specific settings:
-- Site title and metadata
-- Contact email address
-- Social media links
-- Project details
 
 ## Running Locally
 
