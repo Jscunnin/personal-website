@@ -33,11 +33,8 @@ def pid():
 def main():
     ip = request.headers.get('CF-Connecting-IP', request.remote_addr)
     now = datetime.now()
-    userID = request.cookies.get('userID')
-    #if userID == None:
-        #return render_template("askForID.html")
-    #with open(logFile, 'a') as file:
-        #file.write(userID + ' - ' + str(now) + ' - ' + ip + "\n")
+    with open(logFile, 'a') as file:
+        file.write("Someone Connected! -" + ip + "\n")
     return render_template("home.html")
 
 @app.route('/submit', methods=["POST"])
